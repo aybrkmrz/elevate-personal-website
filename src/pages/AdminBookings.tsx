@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 interface Booking {
+  id: number;
   name: string;
   email: string;
   goal: string;
@@ -24,21 +25,30 @@ interface Booking {
 
 const AdminBookings = () => {
   const [bookings, setBookings] = useState<Booking[]>([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedBookings = localStorage.getItem("bookings");
-    if (storedBookings) {
-      try {
-        const parsedBookings = JSON.parse(storedBookings);
-        if (Array.isArray(parsedBookings)) {
-          setBookings(parsedBookings);
-        }
-      } catch (error) {
-        console.error("Failed to parse bookings from localStorage", error);
+    const fetchBookings = async () => {
+      setLoading(true);
+      const { data, error } = await supabase
+        .from("bookings")
+        .select("*")
+        .order("date", { ascending: false });
+
+      if (error) {
+        console.error("Error fetching bookings:", error);
+        toast.error("Randevular yüklenirken bir hata oluştu.", {
+          description: "Veritabanı bağlantınızı veya 'bookings' tablo adını kontrol edin.",
+        });
         setBookings([]);
+      } else {
+        setBookings(data || []);
       }
-    }
+      setLoading(false);
+    };
+
+    fetchBookings();
   }, []);
 
   const handleLogout = async () => {
@@ -63,7 +73,9 @@ const AdminBookings = () => {
         <Button onClick={handleLogout} variant="destructive">Çıkış Yap</Button>
       </div>
       <div className="rounded-lg border">
-        {bookings.length > 0 ? (
+        {loading ? (
+          <p className="p-8 text-center text-muted-foreground">Randevular yükleniyor...</p>
+        ) : bookings.length > 0 ? (
           <Table>
             <TableHeader>
               <TableRow>
@@ -74,8 +86,8 @@ const AdminBookings = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {bookings.map((booking, index) => (
-                <TableRow key={index}>
+              {bookings.map((booking) => (
+                <TableRow key={booking.id}>
                   <TableCell className="font-medium">{booking.name}</TableCell>
                   <TableCell>{booking.email}</TableCell>
                   <TableCell>{booking.goal}</TableCell>
