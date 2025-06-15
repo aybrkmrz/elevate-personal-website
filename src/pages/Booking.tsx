@@ -51,6 +51,13 @@ const Booking = () => {
 
   function onSubmit(data: BookingFormValues) {
     console.log(data);
+    
+    const existingBookings = JSON.parse(
+      localStorage.getItem("bookings") || "[]"
+    );
+    const newBookings = [...existingBookings, data];
+    localStorage.setItem("bookings", JSON.stringify(newBookings));
+
     toast.success("Rezervasyon Onaylandı!", {
       description: `Seansınız ${format(data.date, "PPP", { locale: tr })} için planlandı. Yakında sizinle iletişime geçeceğiz.`,
     });
