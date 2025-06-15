@@ -39,9 +39,15 @@ const Login = () => {
     });
 
     if (error) {
-      toast.error("Giriş başarısız oldu", {
-        description: "Lütfen e-posta ve şifrenizi kontrol edin.",
-      });
+      if (error.message === 'Email not confirmed') {
+        toast.error("E-posta adresiniz doğrulanmamış", {
+          description: "Lütfen e-posta kutunuzu kontrol edin ve hesabınızı doğrulayın.",
+        });
+      } else {
+        toast.error("Giriş başarısız oldu", {
+          description: "Lütfen e-posta ve şifrenizi kontrol edin.",
+        });
+      }
     } else if (data.user) {
       toast.success("Başarıyla giriş yapıldı!");
       const role = data.user.user_metadata?.role;
