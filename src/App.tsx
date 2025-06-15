@@ -14,6 +14,8 @@ import NotFound from "./pages/NotFound";
 import Layout from "./components/Layout";
 import Booking from "./pages/Booking";
 import Shop from "./pages/Shop";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfUse from "./pages/TermsOfUse";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +57,8 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/booking" element={<Booking />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-use" element={<TermsOfUse />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
