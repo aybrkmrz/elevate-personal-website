@@ -1,7 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { useToast } from "@/hooks/use-toast";
 
 const products = [
@@ -28,7 +28,7 @@ const products = [
   }
 ];
 
-const fadeInStagger = {
+const fadeInStagger: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
