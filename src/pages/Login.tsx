@@ -62,7 +62,8 @@ const Login = () => {
       toast.success("Başarıyla giriş yapıldı!");
       const role = session.user.user_metadata?.role;
       if (role === 'admin') {
-        navigate("/admin");
+        // Force a full page reload to ensure all components get the new session data
+        window.location.assign("/admin");
       } else if (role === 'client') {
         navigate("/client/dashboard");
       } else {
