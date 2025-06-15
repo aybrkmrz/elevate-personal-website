@@ -80,7 +80,7 @@ const Index = () => {
       <section className="relative h-[85vh] min-h-[600px] w-full flex items-center justify-center text-center overflow-hidden">
         <div className="absolute inset-0 bg-black/60 z-10"></div>
         <motion.img
-          src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2070&auto=format&fit=crop"
+          src="/lovable-uploads/b8c6b1c0-2f70-41bc-8574-2179b1955871.png"
           alt="Man working out in a gym"
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ scale: 1.1 }}
