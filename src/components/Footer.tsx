@@ -1,6 +1,7 @@
 
 import { Link } from 'react-router-dom';
 import { Dumbbell, Twitter, Instagram, Facebook } from 'lucide-react';
+import { NewsletterForm } from './forms/NewsletterForm';
 
 const Footer = () => {
   return (
@@ -41,8 +42,16 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-border/40 text-center text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} FitFlex. All rights reserved. Built with Lovable.
+        <div className="mt-12 pt-8 border-t border-border/40">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="w-full md:w-1/2 lg:w-2/3">
+                <h3 className="font-semibold mb-2">Subscribe to our newsletter</h3>
+                <NewsletterForm />
+            </div>
+            <div className="text-sm text-muted-foreground text-center md:text-right">
+              &copy; {new Date().getFullYear()} FitFlex. All rights reserved. Built with Lovable.
+            </div>
+          </div>
         </div>
       </div>
     </footer>

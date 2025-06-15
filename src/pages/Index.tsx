@@ -4,6 +4,7 @@ import { FeaturesSection } from '@/components/landing/FeaturesSection';
 import { ProgramsSection } from '@/components/landing/ProgramsSection';
 import { TestimonialsSection } from '@/components/landing/TestimonialsSection';
 import { CtaSection } from '@/components/landing/CtaSection';
+import { NewsletterSection } from '@/components/landing/NewsletterSection';
 
 const programs = [
   {
@@ -40,10 +41,10 @@ const Index = () => {
       <FeaturesSection />
       <ProgramsSection programs={programs} />
       <TestimonialsSection />
+      <NewsletterSection />
       <CtaSection />
     </div>
   );
 };
 
 export default Index;
-
