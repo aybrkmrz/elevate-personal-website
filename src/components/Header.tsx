@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Menu, X, Dumbbell } from 'lucide-react';
@@ -9,7 +8,6 @@ const navLinks = [
   { href: '/', label: 'Anasayfa' },
   { href: '/about', label: 'Hakkımda' },
   { href: '/services', label: 'Hizmetler' },
-  { href: '/shop', label: 'Mağaza' },
   { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'İletişim' },
 ];
