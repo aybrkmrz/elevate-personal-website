@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
@@ -79,8 +80,8 @@ const Index = () => {
       <section className="relative h-[85vh] min-h-[600px] w-full flex items-center justify-center text-center overflow-hidden">
         <div className="absolute inset-0 bg-black/60 z-10"></div>
         <motion.img
-          src="https://images.unsplash.com/photo-1594737625787-a8a121c44856?q=80&w=2070&auto=format&fit=crop"
-          alt="Personal trainer with client"
+          src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2070&auto=format&fit=crop"
+          alt="Man working out in a gym"
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
