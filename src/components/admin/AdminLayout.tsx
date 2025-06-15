@@ -1,6 +1,6 @@
 
 import { supabase } from '@/lib/supabaseClient';
-import { LogOut, BookMarked, MessageSquare, Mail, Dumbbell } from 'lucide-react';
+import { LogOut, BookMarked, MessageSquare, Mail, Dumbbell, LayoutDashboard } from 'lucide-react';
 import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
@@ -23,13 +23,25 @@ const AdminLayout = () => {
       <aside className="fixed inset-y-0 left-0 z-10 hidden w-60 flex-col border-r bg-background sm:flex">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-            <Link to="/admin/bookings" className="flex items-center gap-2 font-semibold">
+            <Link to="/admin" className="flex items-center gap-2 font-semibold">
               <Dumbbell className="h-6 w-6" />
               <span className="">Admin Paneli</span>
             </Link>
           </div>
           <div className="flex-1">
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
+              <NavLink
+                to="/admin"
+                end
+                className={({ isActive }) =>
+                  `flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${
+                    isActive && 'bg-muted text-primary'
+                  }`
+                }
+              >
+                <LayoutDashboard className="h-4 w-4" />
+                Genel Bakış
+              </NavLink>
               <NavLink
                 to="/admin/bookings"
                 className={({ isActive }) =>
