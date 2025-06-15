@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { motion, Variants } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { Check, ArrowRight, Dumbbell } from 'lucide-react';
 
 interface Program {
   title: string;
@@ -27,6 +27,11 @@ const fadeInStagger: Variants = {
       ease: 'easeInOut',
     },
   }),
+};
+
+const fadeIn: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeInOut' } },
 };
 
 export const ProgramsSection = ({ programs }: ProgramsSectionProps) => {
@@ -76,6 +81,41 @@ export const ProgramsSection = ({ programs }: ProgramsSectionProps) => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div 
+          className="relative max-w-4xl mx-auto text-center mt-20 md:mt-28"
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          <motion.div 
+            className="absolute top-1/2 -left-24 -translate-y-1/2 hidden lg:block"
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <Dumbbell className="h-16 w-16 text-primary/20" />
+          </motion.div>
+          <motion.div 
+            className="absolute top-1/3 -right-24 -translate-y-1/2 hidden lg:block"
+            animate={{ y: [0, 15, 0], rotate: -45 }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <Dumbbell className="h-12 w-12 text-primary/20" />
+          </motion.div>
+          
+          <h2 className="text-2xl md:text-3xl font-bold">Daha Fazlasını Keşfedin</h2>
+          <p className="mt-3 max-w-xl mx-auto text-muted-foreground">
+            Tüm dijital programlarımı ve birebir koçluk hizmetlerimi görmek için hizmetler sayfasını ziyaret edin.
+          </p>
+          <div className="mt-6">
+            <Button size="lg" asChild>
+              <Link to="/services">
+                Tüm Hizmetleri Gör <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

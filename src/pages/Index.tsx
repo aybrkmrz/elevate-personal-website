@@ -1,4 +1,3 @@
-
 import { HeroSection } from '@/components/landing/HeroSection';
 import { FeaturesSection } from '@/components/landing/FeaturesSection';
 import { ProgramsSection } from '@/components/landing/ProgramsSection';
@@ -6,7 +5,6 @@ import { TestimonialsSection } from '@/components/landing/TestimonialsSection';
 import { CtaSection } from '@/components/landing/CtaSection';
 import { NewsletterSection } from '@/components/landing/NewsletterSection';
 import { FaqSection } from '@/components/landing/FaqSection';
-import { ServicesCtaSection } from '@/components/landing/ServicesCtaSection';
 
 const programs = [
   {
@@ -42,7 +40,6 @@ const Index = () => {
       <HeroSection handleScrollToPrograms={handleScrollToPrograms} />
       <FeaturesSection />
       <ProgramsSection programs={programs} />
-      <ServicesCtaSection />
       <TestimonialsSection />
       <FaqSection />
       <NewsletterSection />
