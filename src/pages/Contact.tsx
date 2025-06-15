@@ -3,13 +3,61 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import { supabase } from '@/lib/supabaseClient';
+import { toast } from 'sonner';
+
+const contactFormSchema = z.object({
+  name: z.string().min(2, { message: "İsim en az 2 karakter olmalıdır." }),
+  email: z.string().email({ message: "Lütfen geçerli bir e-posta adresi girin." }),
+  subject: z.string().optional(),
+  message: z.string().min(10, { message: "Mesajınız en az 10 karakter uzunluğunda olmalıdır." }),
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
+
+const defaultValues: Partial<ContactFormValues> = {
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+};
+
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // In a real app, you'd handle form submission here (e.g., send to an API)
-    alert("Mesajınız için teşekkür ederiz! Size en kısa sürede geri döneceğiz.");
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues,
+  });
+
+  const onSubmit = async (data: ContactFormValues) => {
+    // Konu belirtilmişse, mesaj içeriğine ekliyoruz.
+    const messageContent = data.subject 
+      ? `Konu: ${data.subject}\n\n${data.message}`
+      : data.message;
+      
+    const { error } = await supabase.from("messages").insert([
+      {
+        name: data.name,
+        email: data.email,
+        message: messageContent,
+      },
+    ]);
+
+    if (error) {
+      console.error("Error sending message:", error);
+      toast.error("Mesaj gönderilirken bir hata oluştu.", {
+        description: "Lütfen daha sonra tekrar deneyin.",
+      });
+    } else {
+      toast.success("Mesajınız için teşekkür ederiz!", {
+        description: `Size en kısa sürede geri döneceğiz.`,
+      });
+      form.reset(defaultValues);
+    }
   };
 
   return (
@@ -25,29 +73,69 @@ const Contact = () => {
           Bir sorunuz mu var veya fitness yolculuğunuza başlamak mı istiyorsunuz? Bize bir mesaj gönderin!
         </p>
       </div>
-      <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <Label htmlFor="name">İsim</Label>
-            <Input id="name" placeholder="Adınız" required />
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-2xl mx-auto space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>İsim</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Adınız" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>E-posta</FormLabel>
+                  <FormControl>
+                    <Input type="email" placeholder="ornek@eposta.com" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="email">E-posta</Label>
-            <Input id="email" type="email" placeholder="ornek@eposta.com" required />
+          <FormField
+            control={form.control}
+            name="subject"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Konu</FormLabel>
+                <FormControl>
+                  <Input placeholder="Bu ne hakkında?" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="message"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Mesaj</FormLabel>
+                <FormControl>
+                  <Textarea placeholder="Mesajınız..." rows={6} {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <div className="text-center">
+            <Button type="submit" size="lg" disabled={form.formState.isSubmitting}>
+              {form.formState.isSubmitting ? 'Gönderiliyor...' : 'Mesaj Gönder'}
+            </Button>
           </div>
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="subject">Konu</Label>
-          <Input id="subject" placeholder="Bu ne hakkında?" />
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="message">Mesaj</Label>
-          <Textarea id="message" placeholder="Mesajınız..." rows={6} required />
-        </div>
-        <div className="text-center">
-          <Button type="submit" size="lg">Mesaj Gönder</Button>
-        </div>
-      </form>
+        </form>
+      </Form>
     </motion.div>
   );
 };
