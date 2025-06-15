@@ -1,11 +1,10 @@
-
 import { Card, CardContent } from '@/components/ui/card';
 import { motion, Variants } from 'framer-motion';
 
 const testimonials = [
-  { name: 'Jane D.', initial: 'JD', text: "FitFlex changed my life. The personalized approach made all the difference. I'm stronger and more confident than ever!" },
-  { name: 'Alex S.', initial: 'AS', text: "The trainers are top-notch and the community is so motivating. I've crushed goals I never thought were possible." },
-  { name: 'Maria K.', initial: 'MK', text: "I've tried other programs, but nothing compares to FitFlex. The results speak for themselves. Highly recommended!" }
+  { name: 'Jane D.', initial: 'JD', text: "Berkay Erel hayatımı değiştirdi. Kişiselleştirilmiş yaklaşım tüm farkı yarattı. Her zamankinden daha güçlü ve kendime daha güvenliyim!" },
+  { name: 'Alex S.', initial: 'AS', text: "Eğitmenler birinci sınıf ve topluluk çok motive edici. Asla mümkün olmadığını düşündüğüm hedeflere ulaştım." },
+  { name: 'Maria K.', initial: 'MK', text: "Başka programlar denedim ama hiçbiri Berkay Erel ile kıyaslanamaz. Sonuçlar ortada. Kesinlikle tavsiye ederim!" }
 ];
 
 const testimonialVariants: Variants = {
@@ -26,8 +25,8 @@ export const TestimonialsSection = () => {
     <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">What Our Clients Say</h2>
-          <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">Real people, real results. See how we've helped others transform their lives.</p>
+          <h2 className="text-3xl md:text-4xl font-bold">Danışanlarımız Ne Diyor?</h2>
+          <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">Gerçek insanlar, gerçek sonuçlar. Başkalarının hayatlarını dönüştürmelerine nasıl yardımcı olduğumuzu görün.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((client, i) => (
@@ -47,7 +46,7 @@ export const TestimonialsSection = () => {
                     </div>
                     <div>
                       <p className="font-semibold">{client.name}</p>
-                      <p className="text-sm text-muted-foreground">Client</p>
+                      <p className="text-sm text-muted-foreground">Danışan</p>
                     </div>
                   </div>
                 </CardContent>
@@ -59,4 +58,3 @@ export const TestimonialsSection = () => {
     </section>
   );
 };
-

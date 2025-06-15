@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils"
 
 const formSchema = z.object({
   email: z.string().email({
-    message: "Please enter a valid email address.",
+    message: "Lütfen geçerli bir e-posta adresi girin.",
   }),
 })
 
@@ -40,8 +40,8 @@ export function NewsletterForm({ className }: NewsletterFormProps) {
   function onSubmit(data: z.infer<typeof formSchema>) {
     console.log("Newsletter subscription:", data.email)
     toast({
-      title: "Subscribed!",
-      description: "Thanks for subscribing to our newsletter.",
+      title: "Abone olundu!",
+      description: "Bültenimize abone olduğunuz için teşekkürler.",
     })
     form.reset()
   }
@@ -55,14 +55,14 @@ export function NewsletterForm({ className }: NewsletterFormProps) {
           render={({ field }) => (
             <FormItem className="flex-grow">
               <FormControl>
-                <Input placeholder="Enter your email" {...field} />
+                <Input placeholder="E-postanızı girin" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
         <Button type="submit" className="mt-2 sm:mt-0 w-full sm:w-auto shrink-0">
-          Subscribe
+          Abone Ol
         </Button>
       </form>
     </Form>

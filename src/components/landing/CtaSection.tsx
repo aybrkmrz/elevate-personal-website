@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { motion, Variants } from 'framer-motion';
@@ -13,13 +12,13 @@ export const CtaSection = () => {
     <section className="bg-primary text-primary-foreground">
       <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16 md:py-20 text-center">
         <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.8 }}>
-          <h2 className="text-3xl md:text-4xl font-bold">Ready to Start Your Transformation?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">Dönüşümünüze Başlamaya Hazır mısınız?</h2>
           <p className="mt-4 max-w-2xl mx-auto opacity-90">
-            Don't wait another day to start working towards the best version of yourself. Your future self will thank you.
+            Kendinizin en iyi versiyonu olmak için bir gün daha beklemeyin. Gelecekteki siz size teşekkür edecek.
           </p>
           <div className="mt-8">
             <Button size="lg" variant="secondary" asChild>
-              <Link to="/contact">Join FitFlex Today</Link>
+              <Link to="/contact">Hemen Katılın</Link>
             </Button>
           </div>
         </motion.div>
@@ -27,4 +26,3 @@ export const CtaSection = () => {
     </section>
   );
 };
-

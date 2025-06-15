@@ -9,29 +9,29 @@ import { HelpCircle } from "lucide-react";
 
 const faqs = [
   {
-    question: "How long does it take to see results?",
+    question: "Sonuçları görmek ne kadar sürer?",
     answer:
-      "Results vary depending on individual factors like your starting fitness level, consistency, diet, and genetics. However, most clients start noticing positive changes within 4-6 weeks of consistent training and proper nutrition.",
+      "Sonuçlar, başlangıç fitness seviyeniz, tutarlılığınız, diyetiniz ve genetiğiniz gibi bireysel faktörlere bağlı olarak değişir. Ancak, çoğu danışan tutarlı antrenman ve doğru beslenme ile 4-6 hafta içinde olumlu değişiklikler fark etmeye başlar.",
   },
   {
-    question: "Do you offer online coaching?",
+    question: "Online koçluk hizmeti sunuyor musunuz?",
     answer:
-      "Yes, we offer comprehensive online coaching programs that include personalized workout plans, nutrition guidance, and regular virtual check-ins to keep you on track, no matter where you are.",
+      "Evet, nerede olursanız olun sizi yolda tutmak için kişiselleştirilmiş antrenman planları, beslenme rehberliği ve düzenli sanal kontrolleri içeren kapsamlı online koçluk programları sunuyoruz.",
   },
   {
-    question: "What if I have dietary restrictions?",
+    question: "Diyet kısıtlamalarım varsa ne olur?",
     answer:
-      "No problem! Our nutrition plans are fully customizable. We can accommodate various dietary needs, including vegetarian, vegan, gluten-free, and other allergies or preferences. Just let us know your requirements during the initial consultation.",
+      "Sorun değil! Beslenme planlarımız tamamen kişiselleştirilebilir. Vejetaryen, vegan, glutensiz ve diğer alerjiler veya tercihler dahil olmak üzere çeşitli diyet ihtiyaçlarını karşılayabiliriz. İlk danışmanlık sırasında gereksinimlerinizi bize bildirmeniz yeterlidir.",
   },
   {
-    question: "How often should I work out?",
+    question: "Ne sıklıkla antrenman yapmalıyım?",
     answer:
-      "The ideal frequency depends on your goals and current fitness level. For beginners, we often recommend 2-3 sessions per week. More advanced clients might train 4-5 times a week. We'll determine the best schedule for you during your assessment.",
+      "İdeal sıklık, hedeflerinize ve mevcut fitness seviyenize bağlıdır. Yeni başlayanlar için genellikle haftada 2-3 seans öneriyoruz. Daha ileri düzey danışanlar haftada 4-5 kez antrenman yapabilir. Değerlendirmeniz sırasında sizin için en iyi programı belirleyeceğiz.",
   },
   {
-    question: "What kind of support can I expect?",
+    question: "Ne tür bir destek bekleyebilirim?",
     answer:
-      "You'll receive ongoing support through weekly check-ins, access to your trainer via email or messaging for quick questions, and regular progress reviews to adjust your plan as needed. We are committed to your success.",
+      "Haftalık kontroller, hızlı sorular için e-posta veya mesajlaşma yoluyla eğitmeninize erişim ve planınızı gerektiği gibi ayarlamak için düzenli ilerleme incelemeleri yoluyla sürekli destek alacaksınız. Başarınıza bağlıyız.",
   },
 ];
 
@@ -42,10 +42,10 @@ export const FaqSection = () => {
         <div className="text-center mb-12">
           <HelpCircle className="mx-auto h-12 w-12 text-primary" />
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
-            Frequently Asked Questions
+            Sıkça Sorulan Sorular
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Have questions? We've got answers. Here are some of the most common inquiries we receive.
+            Sorularınız mı var? Cevaplarımız var. İşte aldığımız en yaygın sorulardan bazıları.
           </p>
         </div>
         <Accordion type="single" collapsible className="w-full">
