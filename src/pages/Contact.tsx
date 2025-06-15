@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,7 +10,6 @@ import * as z from 'zod';
 import { supabase } from '@/lib/supabaseClient';
 import { toast } from 'sonner';
 import { Mail, Phone, MapPin } from 'lucide-react';
-import Map from '@/components/Map';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "İsim en az 2 karakter olmalıdır." }),
@@ -113,7 +113,14 @@ const Contact = () => {
           <div>
             <h2 className="text-3xl font-semibold mb-6">Konumumuz</h2>
             <div className="rounded-lg overflow-hidden border shadow-lg">
-              <Map />
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.644840428575!2d29.10350217684013!3d40.989292819087445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac927424a7375%3A0x1d5337b17228cb61!2sBarbaros%2C%20Begonya%20Sk.%20No%3A3%2C%2034746%20Ata%C5%9Fehir%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1719943374880!5m2!1str!2str"
+                className="w-full h-96"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </div>
@@ -190,3 +197,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
