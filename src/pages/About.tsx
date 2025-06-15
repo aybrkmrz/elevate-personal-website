@@ -10,9 +10,9 @@ const About = () => {
       className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16"
     >
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold">About FitFlex</h1>
+        <h1 className="text-4xl md:text-5xl font-bold">Berkay Erel Hakkında</h1>
         <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-          We're more than just a gym; we're a community dedicated to helping you achieve your best self.
+          Biz bir spor salonundan daha fazlasıyız; en iyi halinize ulaşmanıza yardımcı olmaya adanmış bir topluluğuz.
         </p>
       </div>
 
@@ -26,7 +26,7 @@ const About = () => {
         >
           <img
             src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
-            alt="Head Trainer"
+            alt="Baş Antrenör"
             className="rounded-lg shadow-lg object-cover w-full h-full aspect-[3/4]"
           />
         </motion.div>
@@ -37,16 +37,16 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.2 }}
         >
-          <h2 className="text-3xl font-bold text-primary mb-4">A Message From Our Head Trainer</h2>
+          <h2 className="text-3xl font-bold text-primary mb-4">Baş Antrenörümüzden Bir Mesaj</h2>
           <div className="space-y-4 text-muted-foreground">
             <p>
-              "My journey into fitness started from a simple desire: to feel stronger and more confident in my own skin. I quickly discovered that fitness is not just about physical strength, but about mental resilience, discipline, and the power of a supportive community."
+              "Fitness yolculuğum basit bir arzuyla başladı: kendi bedenimde daha güçlü ve daha özgüvenli hissetmek. Kısa sürede fitness'ın sadece fiziksel güçle ilgili olmadığını, aynı zamanda zihinsel dayanıklılık, disiplin ve destekleyici bir topluluğun gücüyle ilgili olduğunu keşfettim."
             </p>
             <p>
-              "At FitFlex, I've built the kind of place I always wanted to train in—a welcoming, motivating environment where everyone, regardless of their starting point, feels empowered. My approach is personal. I take the time to understand your unique goals, challenges, and lifestyle to create a plan that not only delivers results but is also sustainable and enjoyable."
+              "Berkay Erel markası altında, her zaman antrenman yapmak istediğim türden bir yer inşa ettim — başlangıç noktası ne olursa olsun herkesin güçlendiğini hissettiği, samimi ve motive edici bir ortam. Yaklaşımım kişiseldir. Sadece sonuç veren değil, aynı zamanda sürdürülebilir ve keyifli bir plan oluşturmak için benzersiz hedeflerinizi, zorluklarınızı ve yaşam tarzınızı anlamak için zaman ayırıyorum."
             </p>
             <p>
-              "I'm not just your trainer; I'm your partner in this journey. Let's work together to unlock your true potential and build a healthier, happier you."
+              "Ben sadece antrenörünüz değilim; bu yolculuktaki ortağınızım. Gerçek potansiyelinizi ortaya çıkarmak ve daha sağlıklı, daha mutlu bir siz inşa etmek için birlikte çalışalım."
             </p>
           </div>
         </motion.div>

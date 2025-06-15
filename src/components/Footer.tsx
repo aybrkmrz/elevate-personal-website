@@ -11,29 +11,29 @@ const Footer = () => {
           <div className="flex flex-col items-start gap-4">
             <Link to="/" className="flex items-center gap-2">
               <Dumbbell className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold">FitFlex</span>
+              <span className="text-xl font-bold">Berkay Erel</span>
             </Link>
-            <p className="text-muted-foreground text-sm">Your journey to a healthier you starts here.</p>
+            <p className="text-muted-foreground text-sm">Daha sağlıklı bir sen için yolculuğun burada başlıyor.</p>
           </div>
           <div className="md:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="font-semibold mb-4">Quick Links</h3>
+              <h3 className="font-semibold mb-4">Hızlı Bağlantılar</h3>
               <ul className="space-y-2">
-                <li><Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">About Us</Link></li>
-                <li><Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">Services</Link></li>
-                <li><Link to="/programs-and-pricing" className="text-sm text-muted-foreground hover:text-primary transition-colors">Programs & Pricing</Link></li>
+                <li><Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">Hakkımda</Link></li>
+                <li><Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">Hizmetler</Link></li>
+                <li><Link to="/shop" className="text-sm text-muted-foreground hover:text-primary transition-colors">Mağaza</Link></li>
                 <li><Link to="/blog" className="text-sm text-muted-foreground hover:text-primary transition-colors">Blog</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Legal</h3>
+              <h3 className="font-semibold mb-4">Yasal</h3>
               <ul className="space-y-2">
-                <li><Link to="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link></li>
-                <li><Link to="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Terms of Service</Link></li>
+                <li><Link to="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors">Gizlilik Politikası</Link></li>
+                <li><Link to="/terms-of-use" className="text-sm text-muted-foreground hover:text-primary transition-colors">Kullanım Şartları</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Follow Us</h3>
+              <h3 className="font-semibold mb-4">Bizi Takip Edin</h3>
               <div className="flex items-center gap-4">
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Twitter size={20} /></a>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Instagram size={20} /></a>
@@ -45,11 +45,11 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border/40">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="w-full md:w-1/2 lg:w-2/3">
-                <h3 className="font-semibold mb-2">Subscribe to our newsletter</h3>
+                <h3 className="font-semibold mb-2">Bültenimize abone olun</h3>
                 <NewsletterForm />
             </div>
             <div className="text-sm text-muted-foreground text-center md:text-right">
-              &copy; {new Date().getFullYear()} FitFlex. All rights reserved. Built with Lovable.
+              &copy; {new Date().getFullYear()} Berkay Erel. Tüm hakları saklıdır. Lovable ile oluşturuldu.
             </div>
           </div>
         </div>

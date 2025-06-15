@@ -9,7 +9,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // In a real app, you'd handle form submission here (e.g., send to an API)
-    alert("Thank you for your message! We'll get back to you soon.");
+    alert("Mesajınız için teşekkür ederiz! Size en kısa sürede geri döneceğiz.");
   };
 
   return (
@@ -20,32 +20,32 @@ const Contact = () => {
       className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16"
     >
       <div className="max-w-2xl mx-auto text-center">
-        <h1 className="text-4xl font-bold mb-4">Get In Touch</h1>
+        <h1 className="text-4xl font-bold mb-4">İletişime Geçin</h1>
         <p className="text-muted-foreground mb-8">
-          Have a question or want to start your fitness journey? Send us a message!
+          Bir sorunuz mu var veya fitness yolculuğunuza başlamak mı istiyorsunuz? Bize bir mesaj gönderin!
         </p>
       </div>
       <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <Label htmlFor="name">Name</Label>
-            <Input id="name" placeholder="Your Name" required />
+            <Label htmlFor="name">İsim</Label>
+            <Input id="name" placeholder="Adınız" required />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" placeholder="your@email.com" required />
+            <Label htmlFor="email">E-posta</Label>
+            <Input id="email" type="email" placeholder="ornek@eposta.com" required />
           </div>
         </div>
         <div className="space-y-2">
-          <Label htmlFor="subject">Subject</Label>
-          <Input id="subject" placeholder="What's this about?" />
+          <Label htmlFor="subject">Konu</Label>
+          <Input id="subject" placeholder="Bu ne hakkında?" />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="message">Message</Label>
-          <Textarea id="message" placeholder="Your message..." rows={6} required />
+          <Label htmlFor="message">Mesaj</Label>
+          <Textarea id="message" placeholder="Mesajınız..." rows={6} required />
         </div>
         <div className="text-center">
-          <Button type="submit" size="lg">Send Message</Button>
+          <Button type="submit" size="lg">Mesaj Gönder</Button>
         </div>
       </form>
     </motion.div>

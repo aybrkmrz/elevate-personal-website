@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 
 const PrivacyPolicy = () => {
-  const currentDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  const currentDate = new Date().toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
     <motion.div
@@ -11,87 +11,87 @@ const PrivacyPolicy = () => {
       transition={{ duration: 0.5 }}
       className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16 text-foreground"
     >
-      <h1 className="text-4xl font-extrabold mb-8 text-primary">Privacy Policy</h1>
-      <p className="mb-6 text-muted-foreground"><strong>Last Updated:</strong> {currentDate}</p>
+      <h1 className="text-4xl font-extrabold mb-8 text-primary">Gizlilik Politikası</h1>
+      <p className="mb-6 text-muted-foreground"><strong>Son Güncelleme:</strong> {currentDate}</p>
       
       <div className="space-y-6">
         <div>
-          <h2 className="text-2xl font-bold mb-3 text-white">1. Introduction</h2>
+          <h2 className="text-2xl font-bold mb-3 text-white">1. Giriş</h2>
           <p className="text-muted-foreground">
-            Welcome to our website. We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, or purchase our products. Please read this policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.
+            Web sitemize hoş geldiniz. Gizliliğinizi korumayı taahhüt ediyoruz. Bu Gizlilik Politikası, web sitemizi ziyaret ettiğinizde, hizmetlerimizi kullandığınızda veya ürünlerimizi satın aldığınızda bilgilerinizi nasıl topladığımızı, kullandığımızı, ifşa ettiğimizi ve koruduğumuzu açıklar. Lütfen bu politikayı dikkatlice okuyun. Bu gizlilik politikasının şartlarını kabul etmiyorsanız, lütfen siteye erişmeyin.
           </p>
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold mb-3 text-white">2. Information We Collect</h2>
-          <p className="text-muted-foreground mb-3">We may collect information about you in a variety of ways. The information we may collect on the Site includes:</p>
+          <h2 className="text-2xl font-bold mb-3 text-white">2. Topladığımız Bilgiler</h2>
+          <p className="text-muted-foreground mb-3">Sizinle ilgili çeşitli yollarla bilgi toplayabiliriz. Sitede toplayabileceğimiz bilgiler şunları içerir:</p>
           <ul className="list-disc list-inside space-y-2 text-muted-foreground">
             <li>
-              <strong>Personal Data:</strong> Personally identifiable information, such as your name, email address, and telephone number, and demographic information, such as your age, gender, and fitness goals, that you voluntarily give to us when you use our contact or booking forms.
+              <strong>Kişisel Veriler:</strong> İletişim veya rezervasyon formlarımızı kullandığınızda bize gönüllü olarak verdiğiniz adınız, e-posta adresiniz ve telefon numaranız gibi kişisel olarak tanımlanabilir bilgiler ve yaşınız, cinsiyetiniz ve fitness hedefleriniz gibi demografik bilgiler.
             </li>
             <li>
-              <strong>Payment Data:</strong> We use third-party payment processors (e.g., Stripe, Gumroad) to handle transactions. We do not store your credit card details. All payment data is securely handled by our processors. Please review their privacy policies for more information.
+              <strong>Ödeme Verileri:</strong> İşlemleri gerçekleştirmek için üçüncü taraf ödeme işlemcileri (ör. Stripe, Gumroad) kullanıyoruz. Kredi kartı bilgilerinizi saklamıyoruz. Tüm ödeme verileri işlemcilerimiz tarafından güvenli bir şekilde işlenir. Daha fazla bilgi için lütfen onların gizlilik politikalarını inceleyin.
             </li>
             <li>
-              <strong>Scheduling Data:</strong> When you book a session through third-party tools like Calendly, we collect information necessary to schedule your appointment, such as your name, email, and selected time slot.
+              <strong>Zamanlama Verileri:</strong> Calendly gibi üçüncü taraf araçlar aracılığıyla bir seans rezervasyonu yaptığınızda, adınız, e-postanız ve seçilen zaman aralığı gibi randevunuzu planlamak için gerekli bilgileri toplarız.
             </li>
             <li>
-              <strong>Usage Data:</strong> We may use cookies and similar tracking technologies to collect information about your device and how you interact with our website. This helps us improve our site and your experience.
+              <strong>Kullanım Verileri:</strong> Cihazınız ve web sitemizle nasıl etkileşimde bulunduğunuz hakkında bilgi toplamak için çerezler ve benzeri izleme teknolojilerini kullanabiliriz. Bu, sitemizi ve deneyiminizi geliştirmemize yardımcı olur.
             </li>
           </ul>
         </div>
         
         <div>
-          <h2 className="text-2xl font-bold mb-3 text-white">3. How We Use Your Information</h2>
-          <p className="text-muted-foreground">We use the information we collect to:</p>
+          <h2 className="text-2xl font-bold mb-3 text-white">3. Bilgilerinizi Nasıl Kullanırız</h2>
+          <p className="text-muted-foreground">Topladığımız bilgileri şu amaçlarla kullanırız:</p>
           <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-            <li>Provide, operate, and maintain our services.</li>
-            <li>Process your transactions and manage your orders.</li>
-            <li>Communicate with you, including responding to your inquiries and sending you service-related information.</li>
-            <li>Improve and personalize your experience on our website.</li>
-            <li>Understand and analyze how you use our website to enhance functionality.</li>
+            <li>Hizmetlerimizi sağlamak, işletmek ve sürdürmek.</li>
+            <li>İşlemlerinizi işlemek ve siparişlerinizi yönetmek.</li>
+            <li>Sorularınıza yanıt vermek ve size hizmetle ilgili bilgiler göndermek de dahil olmak üzere sizinle iletişim kurmak.</li>
+            <li>Web sitemizdeki deneyiminizi iyileştirmek ve kişiselleştirmek.</li>
+            <li>İşlevselliği artırmak için web sitemizi nasıl kullandığınızı anlamak ve analiz etmek.</li>
           </ul>
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold mb-3 text-white">4. Data Storage and Security</h2>
+          <h2 className="text-2xl font-bold mb-3 text-white">4. Veri Depolama ve Güvenlik</h2>
           <p className="text-muted-foreground">
-            We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable.
+            Kişisel bilgilerinizi korumaya yardımcı olmak için idari, teknik ve fiziksel güvenlik önlemleri kullanıyoruz. Bize sağladığınız kişisel bilgileri güvence altına almak için makul adımlar atmış olsak da, çabalarımıza rağmen hiçbir güvenlik önleminin mükemmel veya aşılmaz olmadığını lütfen unutmayın.
           </p>
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold mb-3 text-white">5. Third-Party Services</h2>
+          <h2 className="text-2xl font-bold mb-3 text-white">5. Üçüncü Taraf Hizmetleri</h2>
           <p className="text-muted-foreground">
-            Our website uses third-party services for payments (Stripe, Gumroad) and scheduling (Calendly). We are not responsible for the privacy practices of these third parties. We encourage you to review their privacy policies.
+            Web sitemiz ödemeler (Stripe, Gumroad) ve zamanlama (Calendly) için üçüncü taraf hizmetleri kullanmaktadır. Bu üçüncü tarafların gizlilik uygulamalarından sorumlu değiliz. Gizlilik politikalarını incelemenizi öneririz.
           </p>
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold mb-3 text-white">6. Cookies</h2>
+          <h2 className="text-2xl font-bold mb-3 text-white">6. Çerezler</h2>
           <p className="text-muted-foreground">
-            We use cookies to enhance your experience. You can choose to disable cookies through your browser settings, but this may affect the functionality of the site.
+            Deneyiminizi geliştirmek için çerezler kullanıyoruz. Tarayıcı ayarlarınız aracılığıyla çerezleri devre dışı bırakmayı seçebilirsiniz, ancak bu sitenin işlevselliğini etkileyebilir.
           </p>
         </div>
         
         <div>
-          <h2 className="text-2xl font-bold mb-3 text-white">7. Your Rights</h2>
+          <h2 className="text-2xl font-bold mb-3 text-white">7. Haklarınız</h2>
           <p className="text-muted-foreground">
-            Depending on your location, you may have rights regarding your personal data, such as the right to access, correct, or delete your information. Please contact us to exercise these rights.
+            Bulunduğunuz yere bağlı olarak, bilgilerinize erişme, düzeltme veya silme hakkı gibi kişisel verilerinizle ilgili haklarınız olabilir. Bu hakları kullanmak için lütfen bizimle iletişime geçin.
           </p>
         </div>
         
         <div>
-          <h2 className="text-2xl font-bold mb-3 text-white">8. Changes to This Policy</h2>
+          <h2 className="text-2xl font-bold mb-3 text-white">8. Bu Politikadaki Değişiklikler</h2>
           <p className="text-muted-foreground">
-            We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page.
+            Bu Gizlilik Politikasını zaman zaman güncelleyebiliriz. Yeni politikayı bu sayfada yayınlayarak herhangi bir değişiklik hakkında sizi bilgilendireceğiz.
           </p>
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold mb-3 text-white">9. Contact Us</h2>
+          <h2 className="text-2xl font-bold mb-3 text-white">9. Bize Ulaşın</h2>
           <p className="text-muted-foreground">
-            If you have any questions or concerns about this Privacy Policy, please contact us through the information provided on our contact page.
+            Bu Gizlilik Politikası hakkında herhangi bir sorunuz veya endişeniz varsa, lütfen iletişim sayfamızda verilen bilgiler aracılığıyla bizimle iletişime geçin.
           </p>
         </div>
 

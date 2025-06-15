@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 
 const TermsOfUse = () => {
-  const currentDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  const currentDate = new Date().toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
     <motion.div
@@ -11,66 +11,66 @@ const TermsOfUse = () => {
       transition={{ duration: 0.5 }}
       className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16 text-foreground"
     >
-      <h1 className="text-4xl font-extrabold mb-8 text-primary">Terms of Use</h1>
-      <p className="mb-6 text-muted-foreground"><strong>Last Updated:</strong> {currentDate}</p>
+      <h1 className="text-4xl font-extrabold mb-8 text-primary">Kullanım Şartları</h1>
+      <p className="mb-6 text-muted-foreground"><strong>Son Güncelleme:</strong> {currentDate}</p>
 
       <div className="space-y-6">
         <div>
-          <h2 className="text-2xl font-bold mb-3 text-white">1. Agreement to Terms</h2>
+          <h2 className="text-2xl font-bold mb-3 text-white">1. Şartların Kabulü</h2>
           <p className="text-muted-foreground">
-            By accessing our website, purchasing digital products, or using our training services, you agree to be bound by these Terms of Use and our Privacy Policy. If you do not agree with these terms, you should not use our website or services.
+            Web sitemize erişerek, dijital ürünler satın alarak veya eğitim hizmetlerimizi kullanarak, bu Kullanım Şartları'nı ve Gizlilik Politikamızı kabul etmiş olursunuz. Bu şartları kabul etmiyorsanız, web sitemizi veya hizmetlerimizi kullanmamalısınız.
           </p>
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold mb-3 text-white">2. User Responsibilities</h2>
-          <p className="text-muted-foreground mb-3">As a user of this website and our services, you agree to:</p>
+          <h2 className="text-2xl font-bold mb-3 text-white">2. Kullanıcı Sorumlulukları</h2>
+          <p className="text-muted-foreground mb-3">Bu web sitesinin ve hizmetlerimizin bir kullanıcısı olarak şunları kabul edersiniz:</p>
           <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-            <li>Provide accurate information when filling out forms or making purchases.</li>
-            <li>Use the information and services provided for personal, non-commercial use only.</li>
-            <li>Acknowledge that you are responsible for your own health and safety. You should consult with a physician before starting any new fitness program.</li>
+            <li>Formları doldururken veya satın alma yaparken doğru bilgi sağlamak.</li>
+            <li>Sağlanan bilgi ve hizmetleri yalnızca kişisel, ticari olmayan kullanım için kullanmak.</li>
+            <li>Kendi sağlığınızdan ve güvenliğinizden sorumlu olduğunuzu kabul etmek. Herhangi bir yeni fitness programına başlamadan önce bir hekime danışmalısınız.</li>
           </ul>
         </div>
         
         <div>
-          <h2 className="text-2xl font-bold mb-3 text-white">3. Intellectual Property Rights</h2>
+          <h2 className="text-2xl font-bold mb-3 text-white">3. Fikri Mülkiyet Hakları</h2>
           <p className="text-muted-foreground">
-            All content on this website, including text, graphics, logos, and digital products (workout plans, diet guides), is the property of the website owner and protected by copyright and other intellectual property laws. You may not reproduce, distribute, or create derivative works from any content without explicit permission.
+            Metin, grafikler, logolar ve dijital ürünler (antrenman planları, diyet rehberleri) dahil olmak üzere bu web sitesindeki tüm içerik, web sitesi sahibinin mülkiyetindedir ve telif hakkı ve diğer fikri mülkiyet yasalarıyla korunmaktadır. Açık izin olmadan hiçbir içeriği çoğaltamaz, dağıtamaz veya türev çalışmalar oluşturamazsınız.
           </p>
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold mb-3 text-white">4. Digital Products</h2>
+          <h2 className="text-2xl font-bold mb-3 text-white">4. Dijital Ürünler</h2>
           <p className="text-muted-foreground">
-            All sales of digital products (e.g., PDFs) are final. Due to the nature of digital goods, refunds are not provided. Upon purchase, you are granted a single, non-transferable license to use the product for personal purposes.
+            Tüm dijital ürünlerin (ör. PDF'ler) satışı nihaidir. Dijital ürünlerin doğası gereği geri ödeme yapılmaz. Satın alma üzerine, ürünü kişisel amaçlar için kullanmak üzere tek, devredilemez bir lisans verilir.
           </p>
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold mb-3 text-white">5. Disclaimer of Liability</h2>
+          <h2 className="text-2xl font-bold mb-3 text-white">5. Sorumluluk Reddi</h2>
           <p className="text-muted-foreground">
-            The fitness and nutrition information provided on this site and in our products is for educational purposes only. We are not medical professionals. We make no guarantees concerning the level of success you may experience, and you accept the risk that results will differ for each individual. We are not liable for any injuries or health problems you may experience as a result of using our services or products.
+            Bu sitede ve ürünlerimizde sağlanan fitness ve beslenme bilgileri yalnızca eğitim amaçlıdır. Biz tıp uzmanı değiliz. Yaşayabileceğiniz başarı düzeyiyle ilgili hiçbir garanti vermiyoruz ve sonuçların her birey için farklı olacağı riskini kabul ediyorsunuz. Hizmetlerimizi veya ürünlerimizi kullanmanız sonucunda yaşayabileceğiniz herhangi bir yaralanma veya sağlık sorunundan sorumlu değiliz.
           </p>
         </div>
         
         <div>
-          <h2 className="text-2xl font-bold mb-3 text-white">6. Third-Party Services</h2>
+          <h2 className="text-2xl font-bold mb-3 text-white">6. Üçüncü Taraf Hizmetleri</h2>
           <p className="text-muted-foreground">
-            Our website may contain links to third-party websites or services, such as payment processors or scheduling tools, that are not owned or controlled by us. We are not responsible for the content or practices of any third-party websites.
+            Web sitemiz, tarafımızca sahip olunmayan veya kontrol edilmeyen ödeme işlemcileri veya zamanlama araçları gibi üçüncü taraf web sitelerine veya hizmetlerine bağlantılar içerebilir. Herhangi bir üçüncü taraf web sitesinin içeriğinden veya uygulamalarından sorumlu değiliz.
           </p>
         </div>
         
         <div>
-          <h2 className="text-2xl font-bold mb-3 text-white">7. Changes to Terms</h2>
+          <h2 className="text-2xl font-bold mb-3 text-white">7. Şartlardaki Değişiklikler</h2>
           <p className="text-muted-foreground">
-            We reserve the right to modify these terms at any time. We will notify users of any changes by posting the new terms on this page. Your continued use of the site after such changes constitutes your acceptance of the new terms.
+            Bu şartları herhangi bir zamanda değiştirme hakkımız saklıdır. Yeni şartları bu sayfada yayınlayarak kullanıcıları herhangi bir değişiklik hakkında bilgilendireceğiz. Bu tür değişikliklerden sonra siteyi kullanmaya devam etmeniz, yeni şartları kabul ettiğiniz anlamına gelir.
           </p>
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold mb-3 text-white">8. Contact Us</h2>
+          <h2 className="text-2xl font-bold mb-3 text-white">8. Bize Ulaşın</h2>
           <p className="text-muted-foreground">
-            If you have any questions about these Terms of Use, please contact us through the information provided on our contact page.
+            Bu Kullanım Şartları hakkında herhangi bir sorunuz varsa, lütfen iletişim sayfamızda verilen bilgiler aracılığıyla bizimle iletişime geçin.
           </p>
         </div>
 

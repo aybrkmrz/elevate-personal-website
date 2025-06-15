@@ -11,7 +11,7 @@ const Blog = () => {
     >
       <h1 className="text-4xl font-bold text-center mb-8">Fitness Blog</h1>
       <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto">
-        This is the blog page. Markdown-based posts with fitness tips, recipes, and success stories will be displayed here.
+        Burası blog sayfasıdır. Fitness ipuçları, tarifler ve başarı hikayeleri içeren Markdown tabanlı gönderiler burada görüntülenecektir.
       </p>
     </motion.div>
   );

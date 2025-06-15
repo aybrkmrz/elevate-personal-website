@@ -6,12 +6,12 @@ import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
-  { href: '/shop', label: 'Shop' },
+  { href: '/', label: 'Anasayfa' },
+  { href: '/about', label: 'Hakkımda' },
+  { href: '/services', label: 'Hizmetler' },
+  { href: '/shop', label: 'Mağaza' },
   { href: '/blog', label: 'Blog' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/contact', label: 'İletişim' },
 ];
 
 const Header = () => {
@@ -25,7 +25,7 @@ const Header = () => {
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-2">
           <Dumbbell className="h-8 w-8 text-primary" />
-          <span className="text-xl font-bold">FitFlex</span>
+          <span className="text-xl font-bold">Berkay Erel</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           {navLinks.map((link) => (
@@ -40,7 +40,7 @@ const Header = () => {
         </nav>
         <div className="hidden md:block">
           <Button asChild>
-            <Link to="/contact">Get Started</Link>
+            <Link to="/contact">Başla</Link>
           </Button>
         </div>
         <div className="md:hidden">
@@ -69,7 +69,7 @@ const Header = () => {
                 </NavLink>
               ))}
               <Button asChild onClick={() => setIsOpen(false)} className="mt-2">
-                <Link to="/contact">Get Started</Link>
+                <Link to="/contact">Başla</Link>
               </Button>
             </nav>
           </motion.div>
