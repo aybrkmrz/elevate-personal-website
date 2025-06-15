@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -85,7 +84,14 @@ const Contact = () => {
                 <MapPin className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-lg">Adres</h3>
-                  <p className="text-muted-foreground">Fitness Salonu, Örnek Cad. No:123, 34000, İstanbul</p>
+                  <a
+                    href="https://maps.app.goo.gl/Y6fhubzT18iBkc8e9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Fitness Salonu, Örnek Cad. No:123, 34000, İstanbul
+                  </a>
                 </div>
               </div>
               <div className="flex items-start gap-4">
