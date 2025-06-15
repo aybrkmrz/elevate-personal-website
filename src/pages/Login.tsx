@@ -33,7 +33,7 @@ const Login = () => {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { data: loginData, error } = await supabase.auth.signInWithPassword({
       email: values.email,
       password: values.password,
     });
@@ -48,9 +48,19 @@ const Login = () => {
           description: "Lütfen e-posta ve şifrenizi kontrol edin.",
         });
       }
-    } else if (data.user) {
+    } else if (loginData.user) {
+      // After sign-in, user data can sometimes be stale.
+      // We'll refresh the session to get the latest user metadata.
+      await supabase.auth.refreshSession();
+      const { data: { session } } = await supabase.auth.getSession();
+
+      if (!session) {
+        toast.error("Oturum bilgileri alınamadı. Lütfen tekrar deneyin.");
+        return;
+      }
+
       toast.success("Başarıyla giriş yapıldı!");
-      const role = data.user.user_metadata?.role;
+      const role = session.user.user_metadata?.role;
       if (role === 'admin') {
         navigate("/admin");
       } else if (role === 'client') {
