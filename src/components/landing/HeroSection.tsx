@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { motion, Variants } from 'framer-motion';
@@ -41,11 +40,10 @@ export const HeroSection = ({ handleScrollToPrograms }: HeroSectionProps) => {
             Explore Programs
           </Button>
           <Button size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white hover:text-black transition-colors" asChild>
-            <Link to="/contact">Book a Consultation</Link>
+            <Link to="/booking">Book a Consultation</Link>
           </Button>
         </div>
       </motion.div>
     </section>
   );
 };
-
