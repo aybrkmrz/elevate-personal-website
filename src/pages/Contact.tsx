@@ -9,6 +9,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { supabase } from '@/lib/supabaseClient';
 import { toast } from 'sonner';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import Map from '@/components/Map';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "İsim en az 2 karakter olmalıdır." }),
@@ -67,75 +69,116 @@ const Contact = () => {
       transition={{ duration: 0.5 }}
       className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16"
     >
-      <div className="max-w-2xl mx-auto text-center">
+      <div className="max-w-4xl mx-auto text-center mb-16">
         <h1 className="text-4xl font-bold mb-4">İletişime Geçin</h1>
-        <p className="text-muted-foreground mb-8">
+        <p className="text-muted-foreground">
           Bir sorunuz mu var veya fitness yolculuğunuza başlamak mı istiyorsunuz? Bize bir mesaj gönderin!
         </p>
       </div>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-2xl mx-auto space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>İsim</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Adınız" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>E-posta</FormLabel>
-                  <FormControl>
-                    <Input type="email" placeholder="ornek@eposta.com" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="space-y-12">
+          <div>
+            <h2 className="text-3xl font-semibold mb-6">İletişim Bilgileri</h2>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <MapPin className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg">Adres</h3>
+                  <p className="text-muted-foreground">Fitness Salonu, Örnek Cad. No:123, 34000, İstanbul</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Phone className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg">Telefon</h3>
+                  <p className="text-muted-foreground">+90 (555) 123 45 67</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Mail className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg">E-posta</h3>
+                  <p className="text-muted-foreground">info@fitnessmerkezi.com</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <FormField
-            control={form.control}
-            name="subject"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Konu</FormLabel>
-                <FormControl>
-                  <Input placeholder="Bu ne hakkında?" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="message"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Mesaj</FormLabel>
-                <FormControl>
-                  <Textarea placeholder="Mesajınız..." rows={6} {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <div className="text-center">
-            <Button type="submit" size="lg" disabled={form.formState.isSubmitting}>
-              {form.formState.isSubmitting ? 'Gönderiliyor...' : 'Mesaj Gönder'}
-            </Button>
+          <div>
+            <h2 className="text-3xl font-semibold mb-6">Konumumuz</h2>
+            <div className="rounded-lg overflow-hidden border shadow-lg">
+              <Map />
+            </div>
           </div>
-        </form>
-      </Form>
+        </div>
+
+        <div className="bg-card p-8 rounded-lg border shadow-lg">
+          <h2 className="text-3xl font-semibold mb-6">Bize Mesaj Gönderin</h2>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>İsim</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Adınız" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>E-posta</FormLabel>
+                      <FormControl>
+                        <Input type="email" placeholder="ornek@eposta.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+              <FormField
+                control={form.control}
+                name="subject"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Konu</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Bu ne hakkında?" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Mesaj</FormLabel>
+                    <FormControl>
+                      <Textarea placeholder="Mesajınız..." rows={5} {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <div className="text-left">
+                <Button type="submit" size="lg" disabled={form.formState.isSubmitting}>
+                  {form.formState.isSubmitting ? 'Gönderiliyor...' : 'Mesaj Gönder'}
+                </Button>
+              </div>
+            </form>
+          </Form>
+        </div>
+      </div>
     </motion.div>
   );
 };
