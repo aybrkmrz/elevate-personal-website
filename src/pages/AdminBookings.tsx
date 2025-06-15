@@ -10,9 +10,7 @@ import {
 } from "@/components/ui/table";
 import { format } from "date-fns";
 import { tr } from "date-fns/locale";
-import { Button } from "@/components/ui/button";
 import { supabase } from "@/lib/supabaseClient";
-import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 interface Booking {
@@ -26,7 +24,6 @@ interface Booking {
 const AdminBookings = () => {
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBookings = async () => {
@@ -51,26 +48,15 @@ const AdminBookings = () => {
     fetchBookings();
   }, []);
 
-  const handleLogout = async () => {
-    const { error } = await supabase.auth.signOut();
-    if (error) {
-      toast.error("Çıkış yaparken bir hata oluştu", { description: error.message });
-    } else {
-      toast.success("Başarıyla çıkış yapıldı.");
-      navigate("/login");
-    }
-  };
-
   return (
-    <div className="container mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="flex justify-between items-center mb-12">
+    <div>
+      <div className="mb-8">
         <div>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-primary">Oluşturulan Randevular</h1>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <h1 className="text-3xl font-bold">Oluşturulan Randevular</h1>
+          <p className="text-muted-foreground">
             Aşağıda oluşturulan tüm seans randevularının bir listesi bulunmaktadır.
           </p>
         </div>
-        <Button onClick={handleLogout} variant="destructive">Çıkış Yap</Button>
       </div>
       <div className="rounded-lg border">
         {loading ? (
