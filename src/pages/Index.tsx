@@ -5,6 +5,7 @@ import { ProgramsSection } from '@/components/landing/ProgramsSection';
 import { TestimonialsSection } from '@/components/landing/TestimonialsSection';
 import { CtaSection } from '@/components/landing/CtaSection';
 import { NewsletterSection } from '@/components/landing/NewsletterSection';
+import { FaqSection } from '@/components/landing/FaqSection';
 
 const programs = [
   {
@@ -41,6 +42,7 @@ const Index = () => {
       <FeaturesSection />
       <ProgramsSection programs={programs} />
       <TestimonialsSection />
+      <FaqSection />
       <NewsletterSection />
       <CtaSection />
     </div>
