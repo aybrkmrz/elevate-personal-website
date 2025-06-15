@@ -17,6 +17,7 @@ interface Booking {
   id: number;
   name: string;
   email: string;
+  phone: string;
   goal: string;
   date: string;
 }
@@ -67,6 +68,7 @@ const AdminBookings = () => {
               <TableRow>
                 <TableHead>İsim</TableHead>
                 <TableHead>E-posta</TableHead>
+                <TableHead>Telefon</TableHead>
                 <TableHead>Hedef</TableHead>
                 <TableHead>Tarih</TableHead>
               </TableRow>
@@ -76,6 +78,7 @@ const AdminBookings = () => {
                 <TableRow key={booking.id}>
                   <TableCell className="font-medium">{booking.name}</TableCell>
                   <TableCell>{booking.email}</TableCell>
+                  <TableCell>{booking.phone}</TableCell>
                   <TableCell>{booking.goal}</TableCell>
                   <TableCell>{format(new Date(booking.date), "PPP", { locale: tr })}</TableCell>
                 </TableRow>
