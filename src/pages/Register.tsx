@@ -11,13 +11,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { supabase } from "@/lib/supabaseClient";
@@ -27,8 +20,8 @@ import { motion } from "framer-motion";
 const formSchema = z.object({
   name: z.string().min(2, { message: "İsim en az 2 karakter olmalıdır." }),
   email: z.string().email({ message: "Lütfen geçerli bir e-posta adresi girin." }),
+  phone: z.string().min(10, { message: "Lütfen geçerli bir telefon numarası girin." }),
   password: z.string().min(6, { message: "Şifre en az 6 karakter olmalıdır." }),
-  role: z.enum(["client", "admin"], { required_error: "Lütfen bir rol seçin." }),
 });
 
 const Register = () => {
@@ -39,6 +32,7 @@ const Register = () => {
       name: "",
       email: "",
       password: "",
+      phone: "",
     },
   });
 
@@ -48,8 +42,9 @@ const Register = () => {
       password: values.password,
       options: {
         data: {
-          role: values.role,
+          role: "client",
           full_name: values.name,
+          phone: values.phone,
         },
       },
     });
@@ -107,12 +102,12 @@ const Register = () => {
           />
           <FormField
             control={form.control}
-            name="password"
+            name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Şifre</FormLabel>
+                <FormLabel>Telefon Numarası</FormLabel>
                 <FormControl>
-                  <Input type="password" placeholder="********" {...field} />
+                  <Input type="tel" placeholder="5XXXXXXXXX" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -120,21 +115,13 @@ const Register = () => {
           />
           <FormField
             control={form.control}
-            name="role"
+            name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Rol</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Bir rol seçin" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="client">Danışan</SelectItem>
-                    <SelectItem value="admin">Yönetici</SelectItem>
-                  </SelectContent>
-                </Select>
+                <FormLabel>Şifre</FormLabel>
+                <FormControl>
+                  <Input type="password" placeholder="********" {...field} />
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )}
