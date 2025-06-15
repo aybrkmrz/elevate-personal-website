@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,7 +13,6 @@ import NotFound from "./pages/NotFound";
 import Layout from "./components/Layout";
 import AdminLayout from "./components/admin/AdminLayout";
 import Booking from "./pages/Booking";
-import Shop from "./pages/Shop";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import AdminBookings from "./pages/AdminBookings";
@@ -59,7 +57,6 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/shop" element={<Shop />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/booking" element={<Booking />} />
