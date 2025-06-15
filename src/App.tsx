@@ -20,6 +20,8 @@ import TermsOfUse from "./pages/TermsOfUse";
 import AdminBookings from "./pages/AdminBookings";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AdminMessages from "./pages/AdminMessages";
+import AdminNewsletter from "./pages/AdminNewsletter";
 
 const queryClient = new QueryClient();
 
@@ -70,6 +72,8 @@ const App = () => (
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<Navigate to="/admin/bookings" replace />} />
               <Route path="bookings" element={<AdminBookings />} />
+              <Route path="messages" element={<AdminMessages />} />
+              <Route path="newsletter" element={<AdminNewsletter />} />
             </Route>
           </Route>
 

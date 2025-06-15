@@ -14,8 +14,9 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { useToast } from "@/hooks/use-toast"
+import { toast } from "sonner"
 import { cn } from "@/lib/utils"
+import { supabase } from "@/lib/supabaseClient"
 
 const formSchema = z.object({
   email: z.string().email({
@@ -28,8 +29,6 @@ interface NewsletterFormProps {
 }
 
 export function NewsletterForm({ className }: NewsletterFormProps) {
-  const { toast } = useToast()
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -37,13 +36,36 @@ export function NewsletterForm({ className }: NewsletterFormProps) {
     },
   })
 
-  function onSubmit(data: z.infer<typeof formSchema>) {
-    console.log("Newsletter subscription:", data.email)
-    toast({
-      title: "Abone olundu!",
-      description: "Bültenimize abone olduğunuz için teşekkürler.",
-    })
-    form.reset()
+  async function onSubmit(data: z.infer<typeof formSchema>) {
+    try {
+      const { error } = await supabase
+        .from("newsletter_subscriptions")
+        .insert({ email: data.email });
+
+      if (error) {
+        if (error.code === "23505") { // Unique constraint violation
+          toast.info("Bu e-posta adresi zaten kayıtlı.");
+        } else if (error.code === '42P01') { // Table does not exist
+             toast.error("Bülten abonelikleri özelliği henüz aktif değil.", {
+                description: "Lütfen daha sonra tekrar deneyin."
+            });
+             console.error("newsletter_subscriptions table does not exist.");
+        }
+        else {
+          throw error;
+        }
+      } else {
+        toast.success("Abone olundu!", {
+          description: "Bültenimize abone olduğunuz için teşekkürler.",
+        });
+        form.reset();
+      }
+    } catch (error) {
+      console.error("Subscription error:", error);
+      toast.error("Abonelik sırasında bir hata oluştu.", {
+        description: "Lütfen daha sonra tekrar deneyin.",
+      });
+    }
   }
 
   return (
@@ -61,8 +83,8 @@ export function NewsletterForm({ className }: NewsletterFormProps) {
             </FormItem>
           )}
         />
-        <Button type="submit" className="mt-2 sm:mt-0 w-full sm:w-auto shrink-0">
-          Abone Ol
+        <Button type="submit" disabled={form.formState.isSubmitting} className="mt-2 sm:mt-0 w-full sm:w-auto shrink-0">
+          {form.formState.isSubmitting ? "Gönderiliyor..." : "Abone Ol"}
         </Button>
       </form>
     </Form>

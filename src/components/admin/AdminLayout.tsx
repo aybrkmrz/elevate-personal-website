@@ -1,6 +1,6 @@
 
 import { supabase } from '@/lib/supabaseClient';
-import { LogOut, BookMarked } from 'lucide-react';
+import { LogOut, BookMarked, MessageSquare, Mail, Dumbbell } from 'lucide-react';
 import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
@@ -24,7 +24,7 @@ const AdminLayout = () => {
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
             <Link to="/admin/bookings" className="flex items-center gap-2 font-semibold">
-              <BookMarked className="h-6 w-6" />
+              <Dumbbell className="h-6 w-6" />
               <span className="">Admin Paneli</span>
             </Link>
           </div>
@@ -40,6 +40,28 @@ const AdminLayout = () => {
               >
                 <BookMarked className="h-4 w-4" />
                 Randevular
+              </NavLink>
+              <NavLink
+                to="/admin/messages"
+                className={({ isActive }) =>
+                  `flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${
+                    isActive && 'bg-muted text-primary'
+                  }`
+                }
+              >
+                <MessageSquare className="h-4 w-4" />
+                Gelen Mesajlar
+              </NavLink>
+              <NavLink
+                to="/admin/newsletter"
+                className={({ isActive }) =>
+                  `flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${
+                    isActive && 'bg-muted text-primary'
+                  }`
+                }
+              >
+                <Mail className="h-4 w-4" />
+                Bülten Aboneleri
               </NavLink>
             </nav>
           </div>
