@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -24,6 +25,8 @@ import AdminDashboard from "./pages/AdminDashboard";
 import Register from "./pages/Register";
 import ClientLayout from "./components/client/ClientLayout";
 import ClientDashboard from "./pages/ClientDashboard";
+import ClientPrograms from "./pages/ClientPrograms";
+import ClientNotes from "./pages/ClientNotes";
 
 const queryClient = new QueryClient();
 
@@ -82,9 +85,8 @@ const App = () => (
           <Route element={<ProtectedRoute allowedRoles={['client']} />}>
             <Route path="/client" element={<ClientLayout />}>
               <Route path="dashboard" element={<ClientDashboard />} />
-              {/* Gelecekte eklenecek programlar ve notlar sayfaları için rotalar buraya gelecek */}
-              {/* <Route path="programs" element={<ClientPrograms />} /> */}
-              {/* <Route path="notes" element={<ClientNotes />} /> */}
+              <Route path="programs" element={<ClientPrograms />} />
+              <Route path="notes" element={<ClientNotes />} />
             </Route>
           </Route>
 
