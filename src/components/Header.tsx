@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Menu, X, Dumbbell } from 'lucide-react';
@@ -36,9 +37,12 @@ const Header = () => {
             </NavLink>
           ))}
         </nav>
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-2">
           <Button asChild>
-            <Link to="/contact">Başla</Link>
+            <Link to="/booking">Randevu Al</Link>
+          </Button>
+          <Button variant="outline" asChild>
+            <Link to="/login">Giriş Yap</Link>
           </Button>
         </div>
         <div className="md:hidden">
@@ -66,9 +70,14 @@ const Header = () => {
                   {link.label}
                 </NavLink>
               ))}
-              <Button asChild onClick={() => setIsOpen(false)} className="mt-2">
-                <Link to="/contact">Başla</Link>
-              </Button>
+              <div className="mt-2 flex w-full flex-col gap-2 px-4">
+                <Button asChild onClick={() => setIsOpen(false)} className="w-full">
+                  <Link to="/booking">Randevu Al</Link>
+                </Button>
+                <Button variant="outline" asChild onClick={() => setIsOpen(false)} className="w-full">
+                  <Link to="/login">Giriş Yap</Link>
+                </Button>
+              </div>
             </nav>
           </motion.div>
         )}
