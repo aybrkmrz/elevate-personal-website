@@ -1,4 +1,3 @@
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -25,6 +24,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
+import { supabase } from "@/lib/supabaseClient";
 
 const bookingFormSchema = z.object({
   name: z.string().min(2, { message: "İsim en az 2 karakter olmalıdır." }),
@@ -49,19 +49,31 @@ const Booking = () => {
     defaultValues,
   });
 
-  function onSubmit(data: BookingFormValues) {
-    console.log(data);
-    
-    const existingBookings = JSON.parse(
-      localStorage.getItem("bookings") || "[]"
-    );
-    const newBookings = [...existingBookings, data];
-    localStorage.setItem("bookings", JSON.stringify(newBookings));
+  async function onSubmit(data: BookingFormValues) {
+    const { error } = await supabase.from("bookings").insert([
+      {
+        name: data.name,
+        email: data.email,
+        goal: data.goal,
+        date: data.date.toISOString(),
+      },
+    ]);
 
-    toast.success("Rezervasyon Onaylandı!", {
-      description: `Seansınız ${format(data.date, "PPP", { locale: tr })} için planlandı. Yakında sizinle iletişime geçeceğiz.`,
-    });
-    form.reset(defaultValues);
+    if (error) {
+      console.error("Error creating booking:", error);
+      toast.error("Rezervasyon oluşturulurken bir hata oluştu.", {
+        description: "Lütfen daha sonra tekrar deneyin.",
+      });
+    } else {
+      toast.success("Rezervasyon Onaylandı!", {
+        description: `Seansınız ${format(
+          data.date,
+          "PPP",
+          { locale: tr }
+        )} için planlandı. Yakında sizinle iletişime geçeceğiz.`,
+      });
+      form.reset(defaultValues);
+    }
   }
 
   return (
