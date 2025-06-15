@@ -37,6 +37,9 @@ const ProtectedRoute = ({ allowedRoles }: { allowedRoles?: string[] }) => {
   }
   
   const userRole = session.user.user_metadata?.role;
+  console.log("User role from metadata:", userRole);
+  console.log("Current session object:", session);
+
 
   if (allowedRoles && (!userRole || !allowedRoles.includes(userRole))) {
     // Kullanıcının rolü yetersizse anasayfaya yönlendir.
