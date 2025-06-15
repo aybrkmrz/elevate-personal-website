@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { motion, Variants } from 'framer-motion';
@@ -18,7 +19,7 @@ export const CtaSection = () => {
           </p>
           <div className="mt-8">
             <Button size="lg" variant="secondary" asChild>
-              <Link to="/contact">Hemen Katılın</Link>
+              <Link to="/booking">Randevu Alın</Link>
             </Button>
           </div>
         </motion.div>
