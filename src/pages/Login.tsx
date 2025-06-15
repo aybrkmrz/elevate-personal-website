@@ -44,7 +44,7 @@ const Login = () => {
       });
     } else {
       toast.success("Başarıyla giriş yapıldı!");
-      navigate("/admin-bookings");
+      navigate("/admin");
     }
   }
 

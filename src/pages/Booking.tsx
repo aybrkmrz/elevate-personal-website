@@ -1,3 +1,4 @@
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -29,6 +30,7 @@ import { supabase } from "@/lib/supabaseClient";
 const bookingFormSchema = z.object({
   name: z.string().min(2, { message: "İsim en az 2 karakter olmalıdır." }),
   email: z.string().email({ message: "Lütfen geçerli bir e-posta adresi girin." }),
+  phone: z.string().min(10, { message: "Lütfen geçerli bir telefon numarası girin." }),
   goal: z.string().min(10, { message: "Antrenman hedefiniz en az 10 karakter uzunluğunda olmalıdır." }),
   date: z.date({
     required_error: "Seans için bir tarih gereklidir.",
@@ -40,6 +42,7 @@ type BookingFormValues = z.infer<typeof bookingFormSchema>;
 const defaultValues: Partial<BookingFormValues> = {
   name: "",
   email: "",
+  phone: "",
   goal: "",
 };
 
@@ -54,6 +57,7 @@ const Booking = () => {
       {
         name: data.name,
         email: data.email,
+        phone: data.phone,
         goal: data.goal,
         date: data.date.toISOString(),
       },
@@ -112,6 +116,19 @@ const Booking = () => {
                 <FormLabel>E-posta Adresiniz</FormLabel>
                 <FormControl>
                   <Input placeholder="ornek@eposta.com" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Telefon Numaranız</FormLabel>
+                <FormControl>
+                  <Input placeholder="555 123 45 67" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
