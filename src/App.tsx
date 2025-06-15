@@ -21,6 +21,9 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import AdminMessages from "./pages/AdminMessages";
 import AdminNewsletter from "./pages/AdminNewsletter";
 import AdminDashboard from "./pages/AdminDashboard";
+import Register from "./pages/Register";
+import ClientLayout from "./components/client/ClientLayout";
+import ClientDashboard from "./pages/ClientDashboard";
 
 const queryClient = new QueryClient();
 
@@ -65,13 +68,23 @@ const App = () => (
           </Route>
           
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           
-          <Route element={<ProtectedRoute />}>
+          <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminDashboard />} />
               <Route path="bookings" element={<AdminBookings />} />
               <Route path="messages" element={<AdminMessages />} />
               <Route path="newsletter" element={<AdminNewsletter />} />
+            </Route>
+          </Route>
+
+          <Route element={<ProtectedRoute allowedRoles={['client']} />}>
+            <Route path="/client" element={<ClientLayout />}>
+              <Route path="dashboard" element={<ClientDashboard />} />
+              {/* Gelecekte eklenecek programlar ve notlar sayfaları için rotalar buraya gelecek */}
+              {/* <Route path="programs" element={<ClientPrograms />} /> */}
+              {/* <Route path="notes" element={<ClientNotes />} /> */}
             </Route>
           </Route>
 

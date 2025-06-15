@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { Session } from '@supabase/supabase-js';
 
-const ProtectedRoute = () => {
+const ProtectedRoute = ({ allowedRoles }: { allowedRoles?: string[] }) => {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -32,7 +32,19 @@ const ProtectedRoute = () => {
     );
   }
 
-  return session ? <Outlet /> : <Navigate to="/login" replace />;
+  if (!session) {
+    return <Navigate to="/login" replace />;
+  }
+  
+  const userRole = session.user.user_metadata?.role;
+
+  if (allowedRoles && (!userRole || !allowedRoles.includes(userRole))) {
+    // Kullanıcının rolü yetersizse anasayfaya yönlendir.
+    // Gelecekte burası bir "Yetkisiz Erişim" sayfasına yönlendirebilir.
+    return <Navigate to="/" replace />;
+  }
+
+  return <Outlet />;
 };
 
 export default ProtectedRoute;
