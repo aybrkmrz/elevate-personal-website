@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { format } from "date-fns";
+import { tr } from "date-fns/locale";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -26,11 +27,11 @@ import { toast } from "sonner";
 import { motion } from "framer-motion";
 
 const bookingFormSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  goal: z.string().min(10, { message: "Your training goal should be at least 10 characters long." }),
+  name: z.string().min(2, { message: "İsim en az 2 karakter olmalıdır." }),
+  email: z.string().email({ message: "Lütfen geçerli bir e-posta adresi girin." }),
+  goal: z.string().min(10, { message: "Antrenman hedefiniz en az 10 karakter uzunluğunda olmalıdır." }),
   date: z.date({
-    required_error: "A date for the session is required.",
+    required_error: "Seans için bir tarih gereklidir.",
   }),
 });
 
@@ -50,8 +51,8 @@ const Booking = () => {
 
   function onSubmit(data: BookingFormValues) {
     console.log(data);
-    toast.success("Booking confirmed!", {
-      description: `We've scheduled your session for ${format(data.date, "PPP")}. We'll be in touch soon.`,
+    toast.success("Rezervasyon Onaylandı!", {
+      description: `Seansınız ${format(data.date, "PPP", { locale: tr })} için planlandı. Yakında sizinle iletişime geçeceğiz.`,
     });
     form.reset(defaultValues);
   }
@@ -64,9 +65,9 @@ const Booking = () => {
       className="container mx-auto max-w-2xl px-4 py-16 sm:px-6 lg:px-8"
     >
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-primary">Book Your Session</h1>
+        <h1 className="text-4xl md:text-5xl font-extrabold text-primary">Seansınızı Ayarlayın</h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          Take the first step towards a healthier you. Schedule your personal training session below.
+          Daha sağlıklı bir siz olmak için ilk adımı atın. Kişisel antrenman seansınızı aşağıdan planlayın.
         </p>
       </div>
       <Form {...form}>
@@ -76,9 +77,9 @@ const Booking = () => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Full Name</FormLabel>
+                <FormLabel>Tam Adınız</FormLabel>
                 <FormControl>
-                  <Input placeholder="John Doe" {...field} />
+                  <Input placeholder="Adınız Soyadınız" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -89,9 +90,9 @@ const Booking = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email Address</FormLabel>
+                <FormLabel>E-posta Adresiniz</FormLabel>
                 <FormControl>
-                  <Input placeholder="john.doe@example.com" {...field} />
+                  <Input placeholder="ornek@eposta.com" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -102,10 +103,10 @@ const Booking = () => {
             name="goal"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Training Goal</FormLabel>
+                <FormLabel>Antrenman Hedefiniz</FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder="e.g., Lose 10 pounds, prepare for a marathon, build muscle..."
+                    placeholder="ör., 10 kilo vermek, maratona hazırlanmak, kas kütlesi kazanmak..."
                     className="resize-none"
                     {...field}
                   />
@@ -119,7 +120,7 @@ const Booking = () => {
             name="date"
             render={({ field }) => (
               <FormItem className="flex flex-col">
-                <FormLabel>Preferred Date</FormLabel>
+                <FormLabel>Tercih Edilen Tarih</FormLabel>
                 <Popover>
                   <PopoverTrigger asChild>
                     <FormControl>
@@ -132,9 +133,9 @@ const Booking = () => {
                       >
                         <CalendarIcon className="mr-2 h-4 w-4" />
                         {field.value ? (
-                          format(field.value, "PPP")
+                          format(field.value, "PPP", { locale: tr })
                         ) : (
-                          <span>Pick a date</span>
+                          <span>Bir tarih seçin</span>
                         )}
                       </Button>
                     </FormControl>
@@ -148,6 +149,7 @@ const Booking = () => {
                         date < new Date(new Date().toDateString())
                       }
                       initialFocus
+                      locale={tr}
                     />
                   </PopoverContent>
                 </Popover>
@@ -156,7 +158,7 @@ const Booking = () => {
             )}
           />
           <Button type="submit" size="lg" className="w-full">
-            Schedule Session
+            Seansı Planla
           </Button>
         </form>
       </Form>
