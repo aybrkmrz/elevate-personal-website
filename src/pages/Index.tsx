@@ -2,22 +2,35 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Target, ShieldCheck, Users } from 'lucide-react';
 
 const Index = () => {
-  const fadeIn = {
+  const fadeIn: Variants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeInOut" } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeInOut' } },
   };
 
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: {},
     visible: {
       transition: {
         staggerChildren: 0.2,
       },
     },
+  };
+
+  const testimonialVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.6,
+        ease: 'easeInOut',
+      },
+    }),
   };
 
   return (
@@ -47,7 +60,7 @@ const Index = () => {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button size="lg" asChild>
-              <Link to="/programs">Explore Programs</Link>
+              <Link to="/programs-and-pricing">Explore Programs</Link>
             </Button>
             <Button size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white hover:text-black transition-colors" asChild>
               <Link to="/contact">Book a Consultation</Link>
@@ -126,7 +139,13 @@ const Index = () => {
               { name: 'Alex S.', initial: 'AS' },
               { name: 'Maria S.', initial: 'MS' }
             ].map((client, i) => (
-              <motion.div key={i} variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5, delay: i * 0.1 }}>
+              <motion.div 
+                key={i} 
+                custom={i}
+                variants={testimonialVariants}
+                initial="hidden" 
+                whileInView="visible" 
+                viewport={{ once: true, amount: 0.5 }}>
                 <Card className="bg-background border-border h-full">
                   <CardContent className="pt-6">
                     <p className="text-muted-foreground italic">"FitFlex changed my life. The personalized approach made all the difference. I'm stronger and more confident than ever!"</p>
